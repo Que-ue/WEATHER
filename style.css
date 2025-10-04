@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: url('https://images.unsplash.com/photo-1571680719972-f18bb57077cf') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Segoe UI', sans-serif;
+    transition: background-image 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 50px;
+  }
+  
+  /* 🔍 Top Search Bar */
+  .top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .input-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    padding: 8px 12px;
+    width: 90%;
+    max-width: 400px;
+    backdrop-filter: blur(10px);
+  }
+  
+  .input-box input {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    background-color: #d3f9d8;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .input-box button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .input-box button::after {
+    content: "🔍";
+    font-size: 20px;
+    color: #e84118;
+  }
+  
+  /* 📋 Weather Info Box */
+  .weather-card {
+    margin-top: 30px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    color: white;
+    font-size: 18px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+  }
+  .weather-card.hidden {
+    display: none;
+  }
+    
