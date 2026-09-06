@@ -1,83 +1,366 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* ================================
+   BODY
+================================ */
+
+body {
+  min-height: 100vh;
+  width: 100%;
+
+  font-family: "Segoe UI", sans-serif;
+
+  background: url("https://images.unsplash.com/photo-1571680719972-f18bb57077cf")
+    no-repeat center center fixed;
+
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 50px 20px;
+
+  overflow-x: hidden;
+
+  transition: background-image 1s ease-in-out;
+}
+
+
+/* Dark overlay */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background: rgba(10, 20, 45, 0.25);
+
+  z-index: -1;
+}
+
+
+/* ================================
+   TOP SEARCH BAR
+================================ */
+
+.top-bar {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ================================
+   SEARCH BOX
+================================ */
+
+.input-box {
+  width: 90%;
+  max-width: 500px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 8px 12px;
+
+  background: rgba(255, 255, 255, 0.18);
+
+  border: 1px solid rgba(255, 255, 255, 0.45);
+
+  border-radius: 30px;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.18),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+
+  transition: all 0.3s ease;
+}
+
+
+/* Search box hover */
+
+.input-box:hover {
+  background: rgba(255, 255, 255, 0.22);
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.22),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+
+/* Search box focus */
+
+.input-box:focus-within {
+  border-color: rgba(255, 255, 255, 0.8);
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.25),
+    0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+
+/* ================================
+   SEARCH ICON
+================================ */
+
+.search-icon {
+  color: white;
+
+  font-size: 24px;
+
+  margin: 0 8px 0 5px;
+
+  opacity: 0.9;
+}
+
+
+/* ================================
+   INPUT
+================================ */
+
+.input-box input {
+  flex: 1;
+
+  width: 100%;
+
+  padding: 12px 10px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-family: inherit;
+}
+
+
+/* Placeholder */
+
+.input-box input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* ================================
+   SEARCH BUTTON
+================================ */
+
+.input-box button {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.2);
+
+  cursor: pointer;
+
+  font-size: 18px;
+
+  transition: all 0.25s ease;
+}
+
+
+/* Button hover */
+
+.input-box button:hover {
+  background: rgba(255, 255, 255, 0.35);
+
+  transform: scale(1.08);
+}
+
+
+/* Button click */
+
+.input-box button:active {
+  transform: scale(0.95);
+}
+
+
+/* ================================
+   MAIN
+================================ */
+
+main {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+
+/* ================================
+   WEATHER CARD
+================================ */
+
+.weather-card {
+  width: 90%;
+  max-width: 500px;
+
+  margin-top: 35px;
+
+  padding: 35px 30px;
+
+  text-align: center;
+
+  color: white;
+
+  background: rgba(255, 255, 255, 0.16);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  border-radius: 28px;
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.22),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+
+  animation: cardAppear 0.5s ease;
+
+  font-size: 17px;
+}
+
+
+/* ================================
+   CARD ANIMATION
+================================ */
+
+@keyframes cardAppear {
+
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
   }
-  
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+
+/* ================================
+   WEATHER TITLE
+================================ */
+
+.weather-card h2 {
+  margin-bottom: 12px;
+
+  font-size: 28px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.3px;
+
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ================================
+   WEATHER ICON
+================================ */
+
+.weather-card img {
+  width: 110px;
+  height: 110px;
+
+  object-fit: contain;
+
+  margin: 5px auto 10px;
+
+  filter: drop-shadow(
+    0 5px 10px rgba(0, 0, 0, 0.2)
+  );
+}
+
+
+/* ================================
+   WEATHER INFORMATION
+================================ */
+
+.weather-card p {
+  margin: 12px 0;
+
+  line-height: 1.6;
+
+  color: rgba(255, 255, 255, 0.95);
+}
+
+
+/* Bold labels */
+
+.weather-card strong {
+  color: white;
+
+  font-weight: 600;
+}
+
+
+/* ================================
+   HIDDEN STATE
+================================ */
+
+.weather-card.hidden {
+  display: none;
+}
+
+
+/* ================================
+   MOBILE RESPONSIVE
+================================ */
+
+@media (max-width: 600px) {
+
   body {
-    background: url('https://images.unsplash.com/photo-1571680719972-f18bb57077cf') no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
-    font-family: 'Segoe UI', sans-serif;
-    transition: background-image 1s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-x: hidden;
-    overflow-y: auto;
-    padding-top: 50px;
+    padding: 30px 15px;
   }
-  
-  /* 🔍 Top Search Bar */
-  .top-bar {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
+
   .input-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.6);
-    border-radius: 20px;
-    padding: 8px 12px;
-    width: 90%;
-    max-width: 400px;
-    backdrop-filter: blur(10px);
+    width: 95%;
   }
-  
-  .input-box input {
-    flex: 1;
-    padding: 10px 15px;
-    border: none;
-    outline: none;
-    background-color: #d3f9d8;
-    border-radius: 12px;
-    font-size: 16px;
-    color: #333;
-  }
-  
-  .input-box button {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    margin-left: 10px;
-  }
-  
-  .input-box button::after {
-    content: "🔍";
-    font-size: 20px;
-    color: #e84118;
-  }
-  
-  /* 📋 Weather Info Box */
+
   .weather-card {
-    margin-top: 30px;
-    padding: 25px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    color: white;
-    font-size: 18px;
-    width: 90%;
-    max-width: 500px;
-    text-align: center;
-    box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+    width: 95%;
+
+    padding: 28px 20px;
+
+    margin-top: 25px;
   }
-  .weather-card.hidden {
-    display: none;
+
+  .weather-card h2 {
+    font-size: 24px;
   }
-    
+
+  .weather-card img {
+    width: 90px;
+    height: 90px;
+  }
+
+}

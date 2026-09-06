@@ -1,23 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Weather App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App ☁️</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <!-- Top Search Bar -->
-  <div class="top-bar">
+  <header class="top-bar">
     <div class="input-box">
-      <input type="text" id="cityInput" placeholder="Enter city name">
-      <button onclick="getWeather()"></button>
+
+      <span class="search-icon">⌕</span>
+
+      <input
+        type="text"
+        id="cityInput"
+        placeholder="Search for a city..."
+        autocomplete="off"
+      >
+
+      <button
+        type="button"
+        onclick="getWeather()"
+        aria-label="Search weather"
+      >
+        🔍
+      </button>
+
     </div>
-  </div>
+  </header>
 
   <!-- Weather Info Card -->
-  <div id="weatherResult" class="weather-card hidden"></div>
+  <main>
+    <div id="weatherResult" class="weather-card hidden"></div>
+  </main>
 
   <script src="script.js"></script>
+
 </body>
+
 </html>
